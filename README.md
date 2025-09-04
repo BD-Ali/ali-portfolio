@@ -1,43 +1,25 @@
 # Portfolio
 
-Welcome to my personal portfolio. I'm **Ali Badarne**, a computer science student specialising in backend development and software engineering. This repository showcases a dark‑themed website built from the core information in my résumé and highlights my skills, education and a key project.
+This repository contains my personal portfolio website built directly from the information in my résumé. The design embraces a **creative dark theme** with smooth scroll animations and interactive elements. Sections fade into view as you scroll down the page, leveraging the Intersection Observer API to trigger CSS transitions when content enters the viewport【89040023436198†L316-L334】.
 
-## About Me
+## Features
 
-A motivated Computer Science student with strengths in Java, SQL, algorithms and data structures. I'm currently building a Spring Boot product management system and seeking opportunities to contribute and grow as a developer.
+- **Animated sections:** Each section of the page slides and fades into place as you scroll, providing a polished and dynamic feel. The Intersection Observer API monitors when elements enter the viewport and adds classes to trigger animations【89040023436198†L316-L334】.
+- **Dark theme aesthetic:** A sophisticated palette of deep blues and purples with bright accent colours creates a modern and professional look.
+- **Icon‑based contact links:** Prominent links to my GitHub profile, LinkedIn (placeholder) and downloadable résumé appear alongside the hero section, using Font Awesome icons for clarity.
+- **Responsive design:** The layout adapts to different screen sizes, ensuring a consistent experience on desktop and mobile devices.
 
-## Featured Project: Spring Boot Product Management System
+## Contents
 
-- Backend system developed with Spring Boot and PostgreSQL
-- Supports CRUD operations through REST APIs
-- Implements a layered architecture for maintainability
-- Demonstrates proficiency with Spring Boot, SQL, REST APIs, backend development and database integration
+- **index.html** – The main web page that implements the animated, dark‑themed portfolio. It includes sections for About, Education, Skills, Project, Experience and Interests.
+- **Ali_Badarne_Resume.pdf** – My résumé, available for download directly from the site.
 
-## Skills
+## Build Details
 
-- **Languages:** Java, Python, C#, SQL
-- **Web:** HTML, CSS
-- **Frameworks:** Spring Boot, REST APIs
-- **Core:** Data structures, algorithms, object‑oriented design, database design
-- **Tools:** Git, IntelliJ, PostgreSQL
+The site uses plain HTML, CSS and a small amount of JavaScript to implement the scroll animations. The Intersection Observer pattern is based on a technique where a callback function adds an `inview`/`show` class when an element becomes visible in the viewport【89040023436198†L316-L334】. This class triggers CSS transitions for opacity and translation, creating a smooth fade‑in effect.
 
-## Education
-
-- **B.Sc. in Computer Science** at Ben‑Gurion University of the Negev  
-  Expected graduation: **August 2027**
-
-## Additional Experience
-
-- Implemented advanced data structures (AVL trees, B‑trees, heaps, hash tables) and analysed their efficiency
-- Designed and analysed algorithms with an emphasis on complexity and amortised analysis
-- Active participant in coding challenges and competitions
-
-## Activities & Interests
-
-Passionate about backend systems, distributed computing, cybersecurity and applied AI. Enjoy collaborating on coding projects and study groups.
+To view the portfolio locally, simply open `index.html` in a web browser. The site is static and does not require any build tools or frameworks.
 
 ---
-
-> Explore the dark‑themed [portfolio website](./index.html) for a creative showcase of my work and skills.
 
 Download my résumé here: **[Ali_Badarne_Resume.pdf](./Ali_Badarne_Resume.pdf)**

@@ -3,53 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ali Badarne | Creative Portfolio</title>
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <!-- Font Awesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Ali Badarne | Portfolio</title>
+    <!-- Import Google Font and Font Awesome for icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
-        /* Reset and base styles */
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body {
-            background-color: #0a0f24;
-            color: #e6edf3;
-            font-family: 'Poppins', sans-serif;
-            line-height: 1.6;
-            overflow-x: hidden;
+        /* CSS variables define the dark palette and accent colours used across the site */
+        :root {
+            --bg: #0a0f24;
+            --surface: #0f1733;
+            --accent: #58a6ff;
+            --accent-light: #79c0ff;
+            --text: #e6edf3;
+            --muted: #a0aec0;
         }
 
-        /* Navigation bar */
+        /* Global reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+        }
+
+        /* Fixed navigation bar with blur effect */
         nav {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
+            padding: 1rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem 2rem;
-            background: rgba(10, 15, 36, 0.8);
-            backdrop-filter: blur(10px);
+            background: rgba(10, 15, 36, 0.75);
+            backdrop-filter: blur(12px);
             z-index: 100;
+            transition: background 0.3s;
         }
         nav .logo {
             font-weight: 600;
-            font-size: 1.2rem;
-            color: #58a6ff;
+            font-size: 1.3rem;
+            color: var(--accent);
+        }
+        nav .nav-links {
+            display: flex;
+            gap: 1rem;
         }
         nav .nav-links a {
-            margin-left: 1rem;
-            color: #e6edf3;
+            color: var(--text);
             text-decoration: none;
             font-size: 0.9rem;
+            padding: 0.25rem 0.5rem;
+            position: relative;
             transition: color 0.3s;
         }
         nav .nav-links a:hover {
-            color: #79c0ff;
+            color: var(--accent-light);
+        }
+        /* Active navigation indicator */
+        nav .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -4px;
+            width: 100%;
+            height: 2px;
+            background: var(--accent);
+            border-radius: 2px;
         }
 
-        /* Hero section */
+        /* Hero (header) section with animated gradient */
         header {
             min-height: 100vh;
             display: flex;
@@ -57,18 +88,25 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 0 1rem;
-            background: linear-gradient(135deg, #0a0f24 0%, #14213d 100%);
+            padding: 2rem 1rem;
+            background: linear-gradient(135deg, #0a0f24, #14213d, #0a0f24);
+            background-size: 200% 200%;
+            animation: gradientAnimation 15s ease infinite;
+        }
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
         header h1 {
             font-size: 3rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
+            font-weight: 700;
         }
         header .tagline {
             font-size: 1.4rem;
+            color: var(--muted);
+            margin-top: 0.5rem;
             margin-bottom: 1.5rem;
-            color: #9aa5c0;
         }
         .social-icons {
             display: flex;
@@ -76,58 +114,62 @@
             font-size: 1.6rem;
         }
         .social-icons a {
-            color: #58a6ff;
+            color: var(--accent);
             transition: color 0.3s;
         }
         .social-icons a:hover {
-            color: #79c0ff;
+            color: var(--accent-light);
         }
 
-        /* Section and card styling */
+        /* General section layout */
         section {
             padding: 4rem 1rem;
             max-width: 900px;
             margin: 0 auto;
         }
         .section-title {
-            font-size: 1.8rem;
-            color: #58a6ff;
+            font-size: 2rem;
             margin-bottom: 1rem;
-            letter-spacing: 1px;
+            color: var(--accent);
         }
         .card {
-            background-color: #0f1733;
+            background: var(--surface);
             border-radius: 12px;
-            padding: 1.5rem 2rem;
+            padding: 2rem;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+            margin-bottom: 2rem;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
-        .card + .card {
-            margin-top: 1.5rem;
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.35);
         }
         .card h3 {
-            color: #79c0ff;
             margin-bottom: 0.5rem;
+            color: var(--accent-light);
         }
+        /* Custom list bullets */
         .card ul {
             list-style: none;
-            padding-left: 1rem;
+            padding-left: 0;
         }
         .card ul li {
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.6rem;
+            padding-left: 1.4rem;
             position: relative;
         }
         .card ul li::before {
             content: '';
             position: absolute;
-            left: -0.8rem;
-            top: 0.6rem;
-            width: 0.4rem;
-            height: 0.4rem;
-            background-color: #58a6ff;
+            left: 0;
+            top: 0.5rem;
+            width: 0.5rem;
+            height: 0.5rem;
+            background: var(--accent);
             border-radius: 50%;
         }
 
-        /* Fade-in animation using IntersectionObserver */
+        /* Reveal animations classes */
         .hidden {
             opacity: 0;
             transform: translateY(60px);
@@ -137,17 +179,63 @@
             opacity: 1;
             transform: translateY(0);
         }
+        .slide-left.hidden { transform: translateX(-60px); }
+        .slide-right.hidden { transform: translateX(60px); }
+        .slide-up.hidden { transform: translateY(60px); }
 
-        /* Footer */
+        /* Scroll progress bar */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: var(--accent);
+            width: 0;
+            z-index: 200;
+            transition: width 0.25s ease-out;
+        }
+
+        /* Back to top button */
+        #backToTop {
+            position: fixed;
+            right: 1.5rem;
+            bottom: 1.5rem;
+            background: var(--accent);
+            color: var(--bg);
+            border: none;
+            border-radius: 50%;
+            padding: 0.6rem 0.7rem;
+            font-size: 1.6rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s;
+            z-index: 200;
+        }
+        #backToTop.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Footer styling */
         footer {
             text-align: center;
             padding: 2rem 1rem;
-            color: #586fa1;
-            font-size: 0.8rem;
+            font-size: 0.9rem;
+            color: var(--muted);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            header h1 { font-size: 2.4rem; }
+            header .tagline { font-size: 1.2rem; }
+            nav .nav-links { gap: 0.8rem; }
+            .section-title { font-size: 1.6rem; }
         }
     </style>
 </head>
 <body>
+    <!-- Navigation bar -->
     <nav>
         <div class="logo">Ali Badarne</div>
         <div class="nav-links">
@@ -159,97 +247,142 @@
             <a href="#interests">Interests</a>
         </div>
     </nav>
+    <!-- Scroll progress bar -->
+    <div class="scroll-progress"></div>
 
-    <header id="hero">
+    <!-- Hero section -->
+    <header id="home">
         <h1>Ali Badarne</h1>
-        <p class="tagline">Computer Science Student &amp; Backend Developer</p>
+        <p class="tagline">Software Engineering Student &amp; Backend Developer</p>
         <div class="social-icons">
             <a href="https://github.com/BD-Ali" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-            <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="https://www.linkedin.com/in/bdali" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
             <a href="Ali_Badarne_Resume.pdf" target="_blank" aria-label="Resume"><i class="fas fa-file-pdf"></i></a>
         </div>
     </header>
 
-    <section id="about" class="hidden">
+    <!-- About section -->
+    <section id="about" class="hidden slide-left">
         <h2 class="section-title">About Me</h2>
         <div class="card">
-            <p>Motivated Computer Science student with strong foundations in Java, SQL and backend development. Currently developing a Spring Boot product management system with PostgreSQL integration. Skilled in algorithms, data structures and building scalable applications. Seeking a software engineering internship to contribute technical expertise and grow professionally.</p>
+            <p>Motivated software engineering student with over 5 years in IT &amp; web development. Skilled in Java, C, Python and Node.js for backend services and fluent in HTML5, CSS and Angular for front‑end work. Passionate about building scalable, maintainable systems and always eager to learn new technologies. Seeking an opportunity to apply strong technical skills and team spirit in a professional environment.</p>
         </div>
     </section>
 
-    <section id="education" class="hidden">
+    <!-- Education section -->
+    <section id="education" class="hidden slide-right">
         <h2 class="section-title">Education</h2>
         <div class="card">
-            <p><strong>B.Sc. in Computer Science</strong> at Ben‑Gurion University of the Negev</p>
-            <p><em>Expected Graduation:</em> August 2027</p>
-        </div>
-    </section>
-
-    <section id="skills" class="hidden">
-        <h2 class="section-title">Skills</h2>
-        <div class="card">
-            <h3>Languages</h3>
-            <p>Java, Python, C#, SQL</p>
-            <h3>Web</h3>
-            <p>HTML, CSS</p>
-            <h3>Frameworks</h3>
-            <p>Spring Boot, REST APIs</p>
-            <h3>Core</h3>
-            <p>Data Structures, Algorithms, OOP, Database Design</p>
-            <h3>Tools</h3>
-            <p>Git, IntelliJ, PostgreSQL</p>
-            <h3>Spoken Languages</h3>
-            <p>Arabic (Native), English (Fluent), Hebrew (Proficient)</p>
-        </div>
-    </section>
-
-    <section id="project" class="hidden">
-        <h2 class="section-title">Project</h2>
-        <div class="card">
-            <h3>Spring Boot Product Management System</h3>
+            <p><strong>B.Sc. in Software Engineering</strong><br>Azrieli College of Engineering, Jerusalem</p>
+            <p>Current average: 90.5/100 – 3rd year of studies, expected graduation 2026</p>
+            <p><em>Relevant courses:</em></p>
             <ul>
-                <li>Built a backend system with Spring Boot and PostgreSQL to manage products.</li>
-                <li>Developed CRUD operations via REST APIs and applied layered architecture for maintainability.</li>
-                <li><strong>Skills:</strong> Spring Boot, SQL, REST APIs, backend development, database integration.</li>
+                <li>Advanced Object Oriented Programming</li>
+                <li>Data Structures and Algorithms</li>
+                <li>Operating Systems &amp; Computer Networks</li>
+                <li>Distributed Systems &amp; Parallel Computing</li>
             </ul>
         </div>
     </section>
 
-    <section id="experience" class="hidden">
-        <h2 class="section-title">Experience</h2>
+    <!-- Skills section -->
+    <section id="skills" class="hidden slide-left">
+        <h2 class="section-title">Technical Skills</h2>
         <div class="card">
+            <h3>Programming</h3>
+            <p>C, Java, Python, Node.js, SQL</p>
+            <h3>Web &amp; Frameworks</h3>
+            <p>HTML5, CSS, JavaScript, Angular, Spring Boot, MySQL</p>
+            <h3>Tools &amp; Environments</h3>
+            <p>Git, VS Code, Docker, Virtualization &amp; VMware, Linux/Windows Servers</p>
+        </div>
+    </section>
+
+    <!-- Project section -->
+    <section id="project" class="hidden slide-right">
+        <h2 class="section-title">Featured Project</h2>
+        <div class="card">
+            <h3>Spring Boot Product Management System</h3>
             <ul>
-                <li>Implemented advanced data structures (AVL trees, B‑trees, heaps, hash tables) with efficiency analysis.</li>
-                <li>Designed and analysed algorithms with complexity and amortised analysis.</li>
-                <li>Actively participated in coding challenges and competitions.</li>
+                <li>Developed a product management backend using Spring Boot and MySQL, exposing RESTful CRUD endpoints.</li>
+                <li>Implemented layered architecture (Controller, Service, Repository) for clean separation of concerns.</li>
+                <li>Added API documentation via Swagger and containerized the application using Docker Compose.</li>
+                <li><strong>Key skills:</strong> Spring Boot, REST APIs, SQL databases, Docker, backend architecture.</li>
             </ul>
         </div>
     </section>
 
-    <section id="interests" class="hidden">
-        <h2 class="section-title">Activities &amp; Interests</h2>
+    <!-- Experience section -->
+    <section id="experience" class="hidden slide-left">
+        <h2 class="section-title">Additional Experience</h2>
         <div class="card">
-            <p>Passionate about backend systems, distributed computing, cybersecurity and applied AI. Active in coding challenges and collaborative study groups.</p>
+            <ul>
+                <li><strong>System &amp; Network Administrator:</strong> Managed wired and wireless networks, set up virtual machines using VMware, and maintained Linux and Windows server environments.</li>
+                <li><strong>Computer &amp; Mobile Repair:</strong> Diagnosed and repaired hardware and software issues for PCs and smartphones, ensuring optimum performance and user satisfaction.</li>
+            </ul>
         </div>
     </section>
 
+    <!-- Interests section -->
+    <section id="interests" class="hidden slide-right">
+        <h2 class="section-title">Interests</h2>
+        <div class="card">
+            <p>Chess enthusiast, volunteer in social entrepreneurship initiatives, and avid car remodeling hobbyist. Enjoy exploring new cuisines and experimenting in the kitchen.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer>
-        &copy; 2025 Ali Badarne
+        &copy; 2025 Ali Badarne. All rights reserved.
     </footer>
 
+    <!-- Back to top button -->
+    <button id="backToTop" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
+
     <script>
-        // Intersection Observer to reveal sections on scroll
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
+        // Reveal sections as they enter the viewport
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('show');
+                    observer.unobserve(entry.target);
                 }
             });
-        }, {
-            threshold: 0.15
+        }, { threshold: 0.15 });
+        document.querySelectorAll('.hidden').forEach(el => revealObserver.observe(el));
+
+        // Highlight navigation links based on scroll position
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('nav .nav-links a');
+        const navObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                const id = entry.target.getAttribute('id');
+                const navLink = document.querySelector('nav .nav-links a[href="#' + id + '"]');
+                if (entry.isIntersecting) {
+                    navLinks.forEach(link => link.classList.remove('active'));
+                    if (navLink) navLink.classList.add('active');
+                }
+            });
+        }, { threshold: 0.6 });
+        sections.forEach(sec => navObserver.observe(sec));
+
+        // Progress bar and back-to-top button functionality
+        const progressBar = document.querySelector('.scroll-progress');
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrolled = docHeight ? (scrollTop / docHeight) * 100 : 0;
+            progressBar.style.width = scrolled + '%';
+            if (scrollTop > 400) {
+                backToTop.classList.add('show');
+            } else {
+                backToTop.classList.remove('show');
+            }
         });
-        const hiddenElements = document.querySelectorAll('.hidden');
-        hiddenElements.forEach((el) => observer.observe(el));
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
     </script>
 </body>
 </html>

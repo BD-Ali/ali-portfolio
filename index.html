@@ -1,181 +1,205 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ali Badarne | Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Montserrat', sans-serif;
-      background: #f4f7fa;
-      color: #333;
-      line-height: 1.6;
-    }
-    header.hero {
-      background: linear-gradient(135deg, #3f51b5, #2196f3);
-      color: #fff;
-      padding: 60px 20px;
-      text-align: center;
-    }
-    header.hero h1 {
-      margin: 0;
-      font-size: 3em;
-      font-weight: 700;
-    }
-    header.hero p {
-      margin: 10px 0;
-      font-size: 1.2em;
-    }
-    header.hero .contact {
-      font-size: 0.9em;
-      opacity: 0.85;
-    }
-    main {
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 0 20px;
-    }
-    section {
-      background: #fff;
-      border-radius: 8px;
-      padding: 30px;
-      margin-bottom: 30px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
-    section h2 {
-      margin-top: 0;
-      color: #3f51b5;
-      font-size: 1.6em;
-      border-bottom: 2px solid #e3e8f0;
-      padding-bottom: 10px;
-    }
-    .skills-group {
-      display: flex;
-      flex-wrap: wrap;
-    }
-    .skills-group .category {
-      flex: 1 1 200px;
-      margin-right: 20px;
-      margin-bottom: 10px;
-    }
-    .skills-group .category h3 {
-      margin-top: 0;
-      font-size: 1.1em;
-      color: #2196f3;
-    }
-    .skills-group .category p {
-      margin: 0;
-    }
-    .project {
-      margin-top: 10px;
-    }
-    .project h3 {
-      margin: 0;
-      font-size: 1.2em;
-      color: #2196f3;
-    }
-    .project p {
-      margin: 5px 0;
-    }
-    .project .button {
-      display: inline-block;
-      margin-top: 10px;
-      padding: 10px 15px;
-      background: #3f51b5;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 4px;
-      transition: background 0.2s;
-    }
-    .project .button:hover {
-      background: #303f9f;
-    }
-    footer {
-      text-align: center;
-      padding: 20px 0;
-      font-size: 0.9em;
-      color: #888;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ali Badarne | Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0d1117;
+            --primary-color: #58a6ff;
+            --text-color: #c9d1d9;
+            --card-bg: #161b22;
+            --border-radius: 8px;
+            --max-width: 900px;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            text-align: center;
+            padding: 3rem 0 2rem;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        header p {
+            margin: 0.5rem 0 1.5rem;
+            font-size: 1.2rem;
+        }
+
+        .links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .links a {
+            text-decoration: none;
+            color: #fff;
+            background-color: var(--primary-color);
+            padding: 0.7rem 1.2rem;
+            border-radius: var(--border-radius);
+            transition: background-color 0.2s ease-in-out;
+        }
+
+        .links a:hover {
+            background-color: #79c0ff;
+        }
+
+        .section {
+            margin-bottom: 2rem;
+        }
+
+        .section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            color: #fff;
+            border-bottom: 2px solid var(--primary-color);
+            display: inline-block;
+            padding-bottom: 0.2rem;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 1rem 1.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .card h3 {
+            margin-top: 0;
+            color: #fff;
+        }
+
+        .card ul {
+            list-style: none;
+            padding-left: 1rem;
+            margin: 0;
+        }
+
+        .card ul li {
+            margin-bottom: 0.5rem;
+            position: relative;
+        }
+
+        .card ul li::before {
+            content: '';
+            position: absolute;
+            left: -0.8rem;
+            top: 0.6rem;
+            width: 0.4rem;
+            height: 0.4rem;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 3rem;
+            font-size: 0.9rem;
+            color: #586069;
+        }
+    </style>
 </head>
 <body>
-  <header class="hero">
-    <h1>Ali Badarne</h1>
-    <p>Computer Science Student&nbsp;|&nbsp;Backend Development &amp; Software Engineering</p>
-    <p class="contact">Be'er Sheva, Israel &nbsp;&bull;&nbsp; +972‑50‑365‑3429 &nbsp;&bull;&nbsp; badarne3li@gmail.com</p>
-  </header>
+    <div class="container">
+        <header>
+            <h1>Ali Badarne</h1>
+            <p>Computer Science Student | Backend Development &amp; Software Engineering</p>
+            <div class="links">
+                <!-- Replace these links with your actual profile URLs if available -->
+                <a href="https://github.com/BD-Ali" target="_blank">GitHub</a>
+                <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+                <a href="Ali_Badarne_Resume.pdf" target="_blank">Download Resume</a>
+            </div>
+        </header>
 
-  <main>
-    <section id="summary">
-      <h2>Summary</h2>
-      <p>Motivated Computer Science student with strong foundations in Java, SQL and backend development. Currently developing a Spring Boot product management system with PostgreSQL integration. Skilled in algorithms, data structures, and building scalable, reliable applications. Seeking a software engineering internship to contribute technical expertise and grow professionally.</p>
-    </section>
+        <section class="section">
+            <h2>About Me</h2>
+            <div class="card">
+                <p>Motivated Computer Science student with strong foundations in Java, SQL, and backend development. Currently developing a Spring Boot product management system with PostgreSQL integration. Skilled in algorithms, data structures, and building scalable applications. Seeking a software engineering internship to contribute technical expertise and grow professionally.</p>
+            </div>
+        </section>
 
-    <section id="education">
-      <h2>Education</h2>
-      <p><strong>B.Sc. in Computer Science</strong>, Ben‑Gurion University of the Negev<br>
-      Expected Graduation: Aug 2027</p>
-    </section>
+        <section class="section">
+            <h2>Education</h2>
+            <div class="card">
+                <p>B.Sc. in Computer Science at Ben-Gurion University of the Negev</p>
+                <p><em>Expected Graduation:</em> August 2027</p>
+            </div>
+        </section>
 
-    <section id="skills">
-      <h2>Technical Skills</h2>
-      <div class="skills-group">
-        <div class="category">
-          <h3>Languages</h3>
-          <p>Java, Python, C#, SQL</p>
-        </div>
-        <div class="category">
-          <h3>Web</h3>
-          <p>HTML, CSS</p>
-        </div>
-        <div class="category">
-          <h3>Frameworks</h3>
-          <p>Spring Boot, REST APIs</p>
-        </div>
-        <div class="category">
-          <h3>Core</h3>
-          <p>Data Structures, Algorithms, OOP, Database Design</p>
-        </div>
-        <div class="category">
-          <h3>Tools</h3>
-          <p>Git, IntelliJ, PostgreSQL</p>
-        </div>
-        <div class="category">
-          <h3>Spoken</h3>
-          <p>Arabic (Native), English (Fluent), Hebrew (Proficient)</p>
-        </div>
-      </div>
-    </section>
+        <section class="section">
+            <h2>Skills</h2>
+            <div class="card">
+                <h3>Languages</h3>
+                <p>Java, Python, C#, SQL</p>
+                <h3>Web</h3>
+                <p>HTML, CSS</p>
+                <h3>Frameworks</h3>
+                <p>Spring Boot, REST APIs</p>
+                <h3>Core</h3>
+                <p>Data Structures, Algorithms, OOP, Database Design</p>
+                <h3>Tools</h3>
+                <p>Git, IntelliJ, PostgreSQL</p>
+                <h3>Spoken Languages</h3>
+                <p>Arabic (Native), English (Fluent), Hebrew (Proficient)</p>
+            </div>
+        </section>
 
-    <section id="project">
-      <h2>Project</h2>
-      <div class="project">
-        <h3>Spring Boot Product Management System</h3>
-        <p>Built a backend system with Spring Boot and PostgreSQL to manage products. Developed CRUD operations via REST APIs and applied layered architecture for maintainability.</p>
-        <p><em>Skills:</em> Spring Boot, SQL, REST APIs, backend development, database integration</p>
-        <a class="button" href="https://github.com/BD-Ali/spring-boot-product-management" target="_blank">View Source Code</a>
-      </div>
-    </section>
+        <section class="section">
+            <h2>Project</h2>
+            <div class="card">
+                <h3>Spring Boot Product Management System</h3>
+                <ul>
+                    <li>Built a backend system with Spring Boot and PostgreSQL to manage products.</li>
+                    <li>Developed CRUD operations via REST APIs and applied layered architecture for maintainability.</li>
+                    <li><strong>Skills:</strong> Spring Boot, SQL, REST APIs, backend development, database integration.</li>
+                </ul>
+            </div>
+        </section>
 
-    <section id="experience">
-      <h2>Additional Experience</h2>
-      <ul>
-        <li>Implemented advanced data structures (AVL trees, B‑trees, heaps, hash tables) with efficiency analysis.</li>
-        <li>Designed and analyzed algorithms with complexity and amortized analysis.</li>
-        <li>Actively participated in coding challenges and competitions.</li>
-      </ul>
-    </section>
+        <section class="section">
+            <h2>Additional Experience</h2>
+            <div class="card">
+                <ul>
+                    <li>Implemented advanced data structures (AVL trees, B-trees, heaps, hash tables) with efficiency analysis.</li>
+                    <li>Designed and analyzed algorithms with complexity and amortized analysis.</li>
+                    <li>Actively participated in coding challenges and competitions.</li>
+                </ul>
+            </div>
+        </section>
 
-    <section id="interests">
-      <h2>Activities &amp; Interests</h2>
-      <p>Passionate about backend systems, distributed computing, cybersecurity and applied AI. Active in coding challenges and collaborative study groups.</p>
-    </section>
-  </main>
+        <section class="section">
+            <h2>Activities &amp; Interests</h2>
+            <div class="card">
+                <p>Passionate about backend systems, distributed computing, cybersecurity, and applied AI. Active in coding challenges and collaborative study groups.</p>
+            </div>
+        </section>
 
-  <footer>
-    © 2025 Ali Badarne
-  </footer>
+        <footer class="footer">
+            <p>&copy; 2025 Ali Badarne</p>
+        </footer>
+    </div>
 </body>
 </html>

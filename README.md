@@ -1,49 +1,43 @@
 # Portfolio
 
-This repository contains my personal portfolio and resume, built directly from information in my CV.
+Welcome to my personal portfolio. I'm **Ali Badarne**, a computer science student specialising in backend development and software engineering. This repository showcases a dark‑themed website built from the core information in my résumé and highlights my skills, education and a key project.
 
 ## About Me
 
-**Ali Badarne** – Computer Science student specializing in backend development and software engineering. Based in Be'er Sheva, Israel.
+A motivated Computer Science student with strengths in Java, SQL, algorithms and data structures. I'm currently building a Spring Boot product management system and seeking opportunities to contribute and grow as a developer.
 
-### Summary
+## Featured Project: Spring Boot Product Management System
 
-Motivated Computer Science student with foundations in Java, SQL and backend development. Currently developing a Spring Boot product management system with PostgreSQL integration. Skilled in algorithms, data structures, and building scalable applications. Seeking a software engineering internship to contribute technical expertise and grow professionally.
+- Backend system developed with Spring Boot and PostgreSQL
+- Supports CRUD operations through REST APIs
+- Implements a layered architecture for maintainability
+- Demonstrates proficiency with Spring Boot, SQL, REST APIs, backend development and database integration
+
+## Skills
+
+- **Languages:** Java, Python, C#, SQL
+- **Web:** HTML, CSS
+- **Frameworks:** Spring Boot, REST APIs
+- **Core:** Data structures, algorithms, object‑oriented design, database design
+- **Tools:** Git, IntelliJ, PostgreSQL
 
 ## Education
 
-- **B.Sc. in Computer Science**, Ben‑Gurion University of the Negev  
-  *Expected Graduation: Aug 2027*
-
-## Technical Skills
-
-- **Languages:** Java, Python, C#, SQL  
-- **Web:** HTML, CSS  
-- **Frameworks:** Spring Boot, REST APIs  
-- **Core:** Data Structures, Algorithms, OOP, Database Design  
-- **Tools:** Git, IntelliJ, PostgreSQL  
-- **Spoken:** Arabic (Native), English (Fluent), Hebrew (Proficient)
-
-## Project
-
-### Spring Boot Product Management System
-
-Built a backend system with Spring Boot and PostgreSQL to manage products. Developed CRUD operations via REST APIs and applied layered architecture for maintainability.
-
-*Skills:* Spring Boot, SQL, REST APIs, backend development, database integration.
-
-[View source code](https://github.com/BD-Ali/spring-boot-product-management)
+- **B.Sc. in Computer Science** at Ben‑Gurion University of the Negev  
+  Expected graduation: **August 2027**
 
 ## Additional Experience
 
-- Implemented advanced data structures (AVL trees, B‑trees, heaps, hash tables) with efficiency analysis.  
-- Designed and analyzed algorithms with complexity and amortized analysis.  
-- Actively participated in coding challenges and competitions.
+- Implemented advanced data structures (AVL trees, B‑trees, heaps, hash tables) and analysed their efficiency
+- Designed and analysed algorithms with an emphasis on complexity and amortised analysis
+- Active participant in coding challenges and competitions
 
 ## Activities & Interests
 
-Passionate about backend systems, distributed computing, cybersecurity and applied AI. Active in coding challenges and collaborative study groups.
+Passionate about backend systems, distributed computing, cybersecurity and applied AI. Enjoy collaborating on coding projects and study groups.
 
-## Resume
+---
 
-Download the resume [here](Ali_Badarne_Resume.pdf).
+> Explore the dark‑themed [portfolio website](./index.html) for a creative showcase of my work and skills.
+
+Download my résumé here: **[Ali_Badarne_Resume.pdf](./Ali_Badarne_Resume.pdf)**

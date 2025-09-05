@@ -4,27 +4,76 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ali Badarne | Portfolio</title>
-  <!-- Fonts and Icons -->
+  <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <!-- AOS animation library -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+  <!-- AOS library for scroll animations -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
   <style>
     /* Colour palette */
     :root {
-      --primary: #0a192f;       /* deep navy background */
-      --secondary: #112240;     /* slightly lighter section background */
-      --accent: #64ffda;        /* turquoise accent for highlights */
-      --text: #ccd6f6;          /* light text colour */
-      --muted: #8892b0;         /* muted text colour */
+      --primary: #0a192f;           /* deep navy background */
+      --secondary: #112240;         /* slightly lighter section background */
+      --accent: #64ffda;            /* turquoise accent for highlights */
+      --highlight: #0aafff;         /* bright blue for hover and active states */
+      --text-light: #ccd6f6;        /* light text colour */
+      --text-muted: #8892b0;        /* muted text colour */
+      --white: #ffffff;
+    }
+
+    /* Global styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
     body {
-      margin: 0;
-      font-family: 'Montserrat', sans-serif;
       background-color: var(--primary);
-      color: var(--text);
+      color: var(--text-light);
+      font-family: 'Montserrat', sans-serif;
       line-height: 1.6;
+    }
+
+    h1, h2, h3 {
+      color: var(--white);
+      font-weight: 700;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    h2.section-title {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      position: relative;
+    }
+
+    h2.section-title::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 60px;
+      height: 3px;
+      background: var(--accent);
+      border-radius: 2px;
+    }
+
+    p {
+      margin-bottom: 1rem;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: var(--highlight);
     }
 
     /* Navigation */
@@ -32,315 +81,439 @@
       position: fixed;
       top: 0;
       width: 100%;
-      background-color: var(--primary);
+      background-color: rgba(10, 25, 47, 0.85);
       backdrop-filter: blur(8px);
-      box-shadow: 0 4px 6px rgba(0,0,0,0.3);
       z-index: 1000;
     }
+
     .nav-container {
-      max-width: 1000px;
+      max-width: 1100px;
       margin: 0 auto;
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      padding: 20px;
+      justify-content: space-between;
+      padding: 1rem;
     }
-    .site-title {
-      font-size: 28px;
+
+    .logo {
+      font-size: 1.5rem;
       font-weight: 700;
       color: var(--accent);
     }
-    nav a {
-      color: var(--text);
-      margin-left: 24px;
-      text-decoration: none;
-      font-weight: 500;
-      transition: color 0.2s ease;
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
     }
-    nav a:hover {
+
+    nav li {
+      position: relative;
+    }
+
+    nav a {
+      color: var(--text-muted);
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    nav a.active, nav a:hover {
       color: var(--accent);
     }
 
-    /* General section styling */
-    main {
-      padding-top: 120px; /* account for fixed header */
-      max-width: 960px;
-      margin: 0 auto;
-      padding-left: 20px;
-      padding-right: 20px;
-    }
+    /* Sections */
     section {
-      margin-bottom: 80px;
+      padding: 5rem 0;
     }
-    h2 {
-      font-size: 2rem;
-      margin-bottom: 20px;
-      color: var(--accent);
+
+    .section-content {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    /* Hero section */
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background: var(--primary);
       position: relative;
+      overflow: hidden;
     }
-    h2::after {
-      content: '';
-      display: block;
-      width: 60px;
-      height: 3px;
+
+    #particles-js {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 0;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      padding: 2rem;
+    }
+
+    .hero .btn {
+      display: inline-block;
+      margin-top: 2rem;
+      padding: 0.8rem 1.8rem;
+      border: 2px solid var(--accent);
+      border-radius: 4px;
+      color: var(--accent);
+      font-weight: 600;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .hero .btn:hover {
       background-color: var(--accent);
-      margin-top: 8px;
+      color: var(--primary);
     }
+
+    /* Cards layout */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+
     .card {
       background-color: var(--secondary);
-      padding: 24px;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-      margin-bottom: 20px;
+      border-radius: 6px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      transition: transform 0.3s;
     }
-    .card h3 {
-      margin-top: 0;
-      color: var(--accent);
-      font-size: 1.4rem;
+
+    .card:hover {
+      transform: translateY(-8px);
     }
-    ul {
+
+    .contact-list {
       list-style: none;
-      padding-left: 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      padding: 0;
     }
-    ul li::before {
-      content: '\2022'; /* bullet symbol */
-      color: var(--accent);
-      display: inline-block;
-      width: 1em;
-      margin-left: -1em;
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--text-light);
     }
-    a.icon-link {
-      color: var(--accent);
-      margin-right: 16px;
-      font-size: 1.5rem;
-      transition: transform 0.2s, color 0.2s;
-    }
-    a.icon-link:hover {
-      color: #ffffff;
-      transform: scale(1.2);
-    }
+
     footer {
       text-align: center;
-      padding: 40px 0;
-      background-color: var(--primary);
-      color: var(--muted);
+      padding: 2rem 1rem;
+      background-color: var(--secondary);
+      color: var(--text-muted);
       font-size: 0.9rem;
     }
+
     /* Responsive tweaks */
     @media (max-width: 600px) {
       .nav-container {
         flex-direction: column;
+        gap: 1rem;
       }
-      nav a {
-        margin-left: 0;
-        margin-right: 16px;
+      nav ul {
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      h1 {
+        font-size: 2rem;
+      }
+      h2.section-title {
+        font-size: 1.6rem;
       }
     }
   </style>
 </head>
 <body>
-  <!-- React root container -->
-  <div id="root"></div>
+  <!-- Navigation -->
+  <header>
+    <div class="nav-container">
+      <div class="logo">Ali Badarne</div>
+      <nav>
+        <ul>
+          <li><a href="#home" class="nav-link active">Home</a></li>
+          <li><a href="#education" class="nav-link">Education</a></li>
+          <li><a href="#skills" class="nav-link">Skills</a></li>
+          <li><a href="#projects" class="nav-link">Projects</a></li>
+          <li><a href="#experience" class="nav-link">Experience</a></li>
+          <li><a href="#interests" class="nav-link">Interests</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-  <!-- React and Babel from CDN -->
-  <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
-  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
-  <script src="https://unpkg.com/babel-standalone@6.26.0/babel.min.js"></script>
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <!-- Particle background -->
+    <div id="particles-js"></div>
+    <div class="hero-content" data-aos="fade-up">
+      <h1>Hello, I am <span style="color: var(--accent);">Ali Badarne</span></h1>
+      <h2 id="typed-text" style="font-size: 1.6rem; color: var(--accent);"></h2>
+      <p style="max-width: 600px; margin: 0 auto;">
+        Motivated Computer Science student with strong foundations in Java, SQL, and backend development. Currently developing a Spring Boot product management system with PostgreSQL integration. Skilled in algorithms, data structures, and building scalable, reliable applications. Seeking a software engineering internship to contribute technical expertise and grow professionally.
+      </p>
+      <a href="#contact" class="btn">Get in Touch</a>
+    </div>
+  </section>
+
+  <!-- Education Section -->
+  <section id="education" style="background-color: var(--secondary);" data-aos="fade-right">
+    <div class="section-content">
+      <h2 class="section-title">Education</h2>
+      <div class="card">
+        <h3>B.Sc. in Computer Science</h3>
+        <p>
+          Ben-Gurion University of the Negev<br>
+          Expected Graduation: Aug 2027
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" data-aos="fade-left">
+    <div class="section-content">
+      <h2 class="section-title">Technical Skills</h2>
+      <div class="cards">
+        <div class="card">
+          <h3>Languages</h3>
+          <ul>
+            <li>Java</li>
+            <li>Python</li>
+            <li>C#</li>
+            <li>SQL</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Web</h3>
+          <ul>
+            <li>HTML</li>
+            <li>CSS</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Frameworks</h3>
+          <ul>
+            <li>Spring Boot</li>
+            <li>REST APIs</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Core</h3>
+          <ul>
+            <li>Data Structures</li>
+            <li>Algorithms</li>
+            <li>OOP</li>
+            <li>Database Design</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Tools</h3>
+          <ul>
+            <li>Git</li>
+            <li>IntelliJ</li>
+            <li>PostgreSQL</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Languages Spoken</h3>
+          <ul>
+            <li>Arabic (Native)</li>
+            <li>English (Fluent)</li>
+            <li>Hebrew (Proficient)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" style="background-color: var(--secondary);" data-aos="fade-right">
+    <div class="section-content">
+      <h2 class="section-title">Projects</h2>
+      <div class="card">
+        <h3>Spring Boot Product Management System</h3>
+        <p>Built a backend system with Spring Boot and PostgreSQL to manage products. Developed CRUD operations via REST APIs and applied layered architecture for maintainability.</p>
+        <p style="color: var(--highlight); font-size: 0.9rem;">Skills: Spring Boot, SQL, REST APIs, Backend Development, Database Integration</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section id="experience" data-aos="fade-left">
+    <div class="section-content">
+      <h2 class="section-title">Additional Experience</h2>
+      <div class="cards">
+        <div class="card">
+          <p>Implemented advanced data structures (AVL trees, B-trees, heaps, hash tables) with efficiency analysis.</p>
+        </div>
+        <div class="card">
+          <p>Designed and analyzed algorithms with complexity and amortized analysis.</p>
+        </div>
+        <div class="card">
+          <p>Actively participated in coding challenges and competitions.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interests Section -->
+  <section id="interests" style="background-color: var(--secondary);" data-aos="fade-right">
+    <div class="section-content">
+      <h2 class="section-title">Activities & Interests</h2>
+      <div class="cards">
+        <div class="card">
+          <p>Passionate about backend systems, distributed computing, cybersecurity, and applied AI.</p>
+        </div>
+        <div class="card">
+          <p>Active in coding challenges and collaborative study groups.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" data-aos="fade-left">
+    <div class="section-content">
+      <h2 class="section-title">Contact</h2>
+      <ul class="contact-list">
+        <li class="contact-item">
+          <i class="fas fa-envelope"></i>
+          <a href="mailto:badarne3li@gmail.com" style="color: var(--text-light);">badarne3li@gmail.com</a>
+        </li>
+        <li class="contact-item">
+          <i class="fas fa-phone"></i>
+          <span>+972-50-365-3429</span>
+        </li>
+        <li class="contact-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <span>Be'er Sheva, Israel</span>
+        </li>
+        <li class="contact-item">
+          <i class="fab fa-github"></i>
+          <a href="https://github.com/BD-Ali" target="_blank" style="color: var(--text-light);">GitHub</a>
+        </li>
+        <li class="contact-item">
+          <i class="fab fa-linkedin"></i>
+          <a href="https://www.linkedin.com/in/your-profile" target="_blank" style="color: var(--text-light);">LinkedIn</a>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <footer>
+    &copy; <span id="year"></span> Ali Badarne. All rights reserved.
+  </footer>
+
+  <!-- Scripts -->
+  <!-- Typed.js for typing effect -->
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  <!-- Particles.js for animated background -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <!-- AOS library for scroll animations -->
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-
-  <!-- React application using JSX compiled by Babel -->
-  <script type="text/babel">
-    // Initialize AOS (Animate on Scroll)
+  <script>
+    // Initialise AOS
     AOS.init({
+      once: true,
       duration: 800,
-      once: true
+      easing: 'ease-in-out'
     });
 
-    // Header component
-    function Header() {
-      const navItems = [
-        { id: 'summary', label: 'Summary' },
-        { id: 'education', label: 'Education' },
-        { id: 'skills', label: 'Skills' },
-        { id: 'projects', label: 'Projects' },
-        { id: 'experience', label: 'Experience' },
-        { id: 'interests', label: 'Interests' },
-        { id: 'contact', label: 'Contact' }
-      ];
-      return (
-        <header>
-          <div className="nav-container">
-            <div className="site-title">Ali Badarne</div>
-            <nav>
-              {navItems.map(item => (
-                <a key={item.id} href={`#${item.id}`} className="nav-link">{item.label}</a>
-              ))}
-            </nav>
-          </div>
-        </header>
-      );
+    // Initialise typed.js for hero subtitle
+    document.addEventListener('DOMContentLoaded', () => {
+      const typed = new Typed('#typed-text', {
+        strings: ['Computer Science Student', 'Backend Developer', 'Aspiring Software Engineer'],
+        typeSpeed: 50,
+        backSpeed: 30,
+        backDelay: 2000,
+        loop: true
+      });
+    });
+
+    // Initialise particles.js
+    particlesJS('particles-js', {
+      particles: {
+        number: { value: 60, density: { enable: true, value_area: 800 } },
+        color: { value: ['#64ffda', '#ffffff'] },
+        shape: {
+          type: 'circle',
+          stroke: { width: 0, color: '#000000' },
+          polygon: { nb_sides: 5 }
+        },
+        opacity: {
+          value: 0.4,
+          random: true,
+          anim: { enable: false, speed: 1, opacity_min: 0.1, sync: false }
+        },
+        size: {
+          value: 3,
+          random: true,
+          anim: { enable: false, speed: 40, size_min: 0.1, sync: false }
+        },
+        line_linked: {
+          enable: true,
+          distance: 150,
+          color: '#64ffda',
+          opacity: 0.3,
+          width: 1
+        },
+        move: {
+          enable: true,
+          speed: 2,
+          direction: 'none',
+          random: false,
+          straight: false,
+          out_mode: 'out',
+          bounce: false
+        }
+      },
+      interactivity: {
+        detect_on: 'canvas',
+        events: {
+          onhover: { enable: true, mode: 'grab' },
+          onclick: { enable: true, mode: 'push' },
+          resize: true
+        },
+        modes: {
+          grab: { distance: 140, line_linked: { opacity: 1 } },
+          push: { particles_nb: 4 }
+        }
+      },
+      retina_detect: true
+    });
+
+    // Scroll navigation active highlighting
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    function activateNavLink() {
+      let index = sections.length;
+      while(--index && window.scrollY + 100 < sections[index].offsetTop) {}
+      navLinks.forEach((link) => link.classList.remove('active'));
+      navLinks[index].classList.add('active');
     }
 
-    // Section components for each area
-    function Summary() {
-      return (
-        <section id="summary" data-aos="fade-up">
-          <h2>Summary</h2>
-          <p>
-            Motivated Computer Science student with strong foundations in Java, SQL, and backend development. Currently developing a Spring Boot product management system with PostgreSQL integration. Skilled in algorithms, data structures, and building scalable, reliable applications. Seeking a software engineering internship to contribute technical expertise and grow professionally.
-          </p>
-        </section>
-      );
-    }
+    activateNavLink();
+    window.addEventListener('scroll', activateNavLink);
 
-    function Education() {
-      return (
-        <section id="education" data-aos="fade-up">
-          <h2>Education</h2>
-          <div className="card">
-            <h3>B.Sc. in Computer Science</h3>
-            <p>Ben-Gurion University of the Negev</p>
-            <p><strong>Expected Graduation:</strong> Aug 2027</p>
-          </div>
-        </section>
-      );
-    }
-
-    function Skills() {
-      return (
-        <section id="skills" data-aos="fade-up">
-          <h2>Technical Skills</h2>
-          <div className="card">
-            <h3>Languages</h3>
-            <ul>
-              <li>Java</li>
-              <li>Python</li>
-              <li>C#</li>
-              <li>SQL</li>
-            </ul>
-            <h3>Web</h3>
-            <ul>
-              <li>HTML</li>
-              <li>CSS</li>
-            </ul>
-            <h3>Frameworks</h3>
-            <ul>
-              <li>Spring Boot</li>
-              <li>REST APIs</li>
-            </ul>
-            <h3>Core</h3>
-            <ul>
-              <li>Data Structures</li>
-              <li>Algorithms</li>
-              <li>Object-Oriented Programming</li>
-              <li>Database Design</li>
-            </ul>
-            <h3>Tools</h3>
-            <ul>
-              <li>Git</li>
-              <li>IntelliJ</li>
-              <li>PostgreSQL</li>
-            </ul>
-            <h3>Languages Spoken</h3>
-            <ul>
-              <li>Arabic (Native)</li>
-              <li>English (Fluent)</li>
-              <li>Hebrew (Proficient)</li>
-            </ul>
-          </div>
-        </section>
-      );
-    }
-
-    function Projects() {
-      return (
-        <section id="projects" data-aos="fade-up">
-          <h2>Projects</h2>
-          <div className="card">
-            <h3>Spring Boot Product Management System</h3>
-            <p>
-              Built a backend system with Spring Boot and PostgreSQL to manage products. Developed CRUD operations via REST APIs and applied layered architecture for maintainability.
-            </p>
-            <p><strong>Skills:</strong> Spring Boot, SQL, REST APIs, backend development, database integration</p>
-          </div>
-        </section>
-      );
-    }
-
-    function Experience() {
-      return (
-        <section id="experience" data-aos="fade-up">
-          <h2>Additional Experience</h2>
-          <div className="card">
-            <ul>
-              <li>Implemented advanced data structures (AVL trees, B-trees, heaps, hash tables) with efficiency analysis.</li>
-              <li>Designed and analyzed algorithms with complexity and amortized analysis.</li>
-              <li>Actively participated in coding challenges and competitions.</li>
-            </ul>
-          </div>
-        </section>
-      );
-    }
-
-    function Interests() {
-      return (
-        <section id="interests" data-aos="fade-up">
-          <h2>Activities & Interests</h2>
-          <div className="card">
-            <p>Passionate about backend systems, distributed computing, cybersecurity, and applied AI. Active in coding challenges and collaborative study groups.</p>
-          </div>
-        </section>
-      );
-    }
-
-    function Contact() {
-      return (
-        <section id="contact" data-aos="fade-up">
-          <h2>Contact</h2>
-          <div className="card">
-            <p><strong>Location:</strong> Be'er Sheva, Israel</p>
-            <p><strong>Phone:</strong> +972-50-365-3429</p>
-            <p><strong>Email:</strong> <a href="mailto:badarne3li@gmail.com" style={{ color: 'var(--accent)', textDecoration: 'none' }}>badarne3li@gmail.com</a></p>
-            <p>
-              <a href="https://github.com/BD-Ali" target="_blank" rel="noopener" className="icon-link"><i className="fab fa-github"></i></a>
-              <a href="#" target="_blank" rel="noopener" className="icon-link"><i className="fab fa-linkedin"></i></a>
-            </p>
-          </div>
-        </section>
-      );
-    }
-
-    function Footer() {
-      const currentYear = new Date().getFullYear();
-      return (
-        <footer>
-          &copy; {currentYear} Ali Badarne. All rights reserved.
-        </footer>
-      );
-    }
-
-    function App() {
-      return (
-        <>
-          <Header />
-          <main>
-            <Summary />
-            <Education />
-            <Skills />
-            <Projects />
-            <Experience />
-            <Interests />
-            <Contact />
-          </main>
-          <Footer />
-        </>
-      );
-    }
-
-    // Render the App into the root div
-    const rootElement = document.getElementById('root');
-    const root = ReactDOM.createRoot(rootElement);
-    root.render(<App />);
+    // Set current year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
 </html>

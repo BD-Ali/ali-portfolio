@@ -1,390 +1,231 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ali Badarne | Portfolio</title>
-    <!-- Import Google Font and Font Awesome for icons -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <style>
-        /* CSS variables define the dark palette and accent colours used across the site */
-        :root {
-            --bg: #0a0f24;
-            --surface: #0f1733;
-            --accent: #58a6ff;
-            --accent-light: #79c0ff;
-        --text: #e0e0e0;
-        --muted: #b0b8c5;0;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ali Badarne | Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+:root {
+  --primary: #0a192f;
+  --accent: #64ffda;
+  --text: #ccd6f6;
+  --background: #112240;
+  --light-bg: #0a192f;
+}
 
-        /* Global reset and base styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        html {
-            scroll-behavior: smooth;
-        }
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: var(--bg);
-            color: var(--text);
-        }
+body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1.6;
+  color: var(--text);
+  background-color: var(--primary);
+}
 
-        /* Fixed navigation bar with blur effect */
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: rgba(10, 15, 36, 0.75);
-            backdrop-filter: blur(12px);
-            z-index: 100;
-            transition: background 0.3s;
-        }
-        nav .logo {
-            font-weight: 600;
-            font-size: 1.3rem;
-            color: var(--accent);
-        }
-        nav .nav-links {
-            display: flex;
-            gap: 1rem;
-        }
-        nav .nav-links a {
-            color: var(--text);
-            text-decoration: none;
-            font-size: 0.9rem;
-            padding: 0.25rem 0.5rem;
-            position: relative;
-            transition: color 0.3s;
-        }
-        nav .nav-links a:hover {
-            color: var(--accent-light);
-        }
-        /* Active navigation indicator */
-        nav .nav-links a.active::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: -4px;
-            width: 100%;
-            height: 2px;
-            background: var(--accent);
-            border-radius: 2px;
-        }
+.container {
+  width: 90%;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 60px 0;
+}
 
-        /* Hero (header) section with animated gradient */
-        header {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 2rem 1rem;
-            background: linear-gradient(135deg, #0a0f24, #14213d, #0a0f24);
-            background-size: 200% 200%;
-            animation: gradientAnimation 15s ease infinite;
-        }
-        @keyframes gradientAnimation {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-        header h1 {
-            font-size: 3rem;
-            font-weight: 700;
-        }
-        header .tagline {
-            font-size: 1.4rem;
-            color: var(--muted);
-            margin-top: 0.5rem;
-            margin-bottom: 1.5rem;
-        }
-        .social-icons {
-            display: flex;
-            gap: 1.5rem;
-            font-size: 1.6rem;
-        }
-        .social-icons a {
-            color: var(--accent);
-            transition: color 0.3s;
-        }
-        .social-icons a:hover {
-            color: var(--accent-light);
-        }
+header {
+  background-color: var(--primary);
+  padding: 20px 0;
+}
 
-        /* General section layout */
-        section {
-            padding: 4rem 1rem;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-        .section-title {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            color: var(--accent);
-        }
-        .card {
-            background: var(--surface);
-            border-radius: 12px;
-            padding: 2rem;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
-            margin-bottom: 2rem;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        .card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.35);
-        }
-        .card h3 {
-            margin-bottom: 0.5rem;
-            color: var(--accent-light);
-        }
-        /* Custom list bullets */
-        .card ul {
-            list-style: none;
-            padding-left: 0;
-        }
-        .card ul li {
-            margin-bottom: 0.6rem;
-            padding-left: 1.4rem;
-            position: relative;
-        }
-        .card ul li::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0.5rem;
-            width: 0.5rem;
-            height: 0.5rem;
-            background: var(--accent);
-            border-radius: 50%;
-        }
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
-        /* Reveal animations classes */
-        .hidden {
-            opacity: 0;
-            transform: translateY(60px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-        }
-        .show {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .slide-left.hidden { transform: translateX(-60px); }
-        .slide-right.hidden { transform: translateX(60px); }
-        .slide-up.hidden { transform: translateY(60px); }
+header h1 {
+  font-size: 28px;
+  margin: 0;
+  color: var(--accent);
+}
 
-        /* Scroll progress bar */
-        .scroll-progress {
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 4px;
-            background: var(--accent);
-            width: 0;
-            z-index: 200;
-            transition: width 0.25s ease-out;
-        }
+nav a {
+  color: var(--text);
+  margin-left: 20px;
+  text-decoration: none;
+  font-weight: 500;
+}
 
-        /* Back to top button */
-        #backToTop {
-            position: fixed;
-            right: 1.5rem;
-            bottom: 1.5rem;
-            background: var(--accent);
-            color: var(--bg);
-            border: none;
-            border-radius: 50%;
-            padding: 0.6rem 0.7rem;
-            font-size: 1.6rem;
-            cursor: pointer;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.3s ease, visibility 0.3s;
-            z-index: 200;
-        }
-        #backToTop.show {
-            opacity: 1;
-            visibility: visible;
-        }
+nav a:hover {
+  color: var(--accent);
+}
 
-        /* Footer styling */
-        footer {
-            text-align: center;
-            padding: 2rem 1rem;
-            font-size: 0.9rem;
-            color: var(--muted);
-        }
+section {
+  margin-bottom: 60px;
+}
 
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            header h1 { font-size: 2.4rem; }
-            header .tagline { font-size: 1.2rem; }
-            nav .nav-links { gap: 0.8rem; }
-            .section-title { font-size: 1.6rem; }
-        }
-    </style>
+section h2 {
+  font-size: 26px;
+  border-bottom: 2px solid var(--accent);
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.card {
+  background-color: var(--light-bg);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+  margin-bottom: 20px;
+}
+
+.skill-list, .project-list, .experience-list {
+  list-style: none;
+  padding: 0;
+}
+
+.skill-list li, .experience-list li {
+  margin-bottom: 8px;
+}
+
+.project-item {
+  margin-bottom: 20px;
+}
+
+footer {
+  background-color: var(--primary);
+  text-align: center;
+  padding: 20px 0;
+  font-size: 14px;
+}
+
+.icon-link {
+  color: var(--accent);
+  margin-right: 15px;
+  font-size: 24px;
+}
+
+.icon-link:hover {
+  color: #ffffff;
+}
+</style>
 </head>
 <body>
-    <!-- Navigation bar -->
+
+<header>
+  <div class="container">
+    <h1>Ali Badarne</h1>
     <nav>
-        <div class="logo">Ali Badarne</div>
-        <div class="nav-links">
-            <a href="#about">About</a>
-            <a href="#education">Education</a>
-            <a href="#skills">Skills</a>
-            <a href="#project">Project</a>
-            <a href="#experience">Experience</a>
-            <a href="#interests">Interests</a>
-        </div>
+      <a href="#summary">Summary</a>
+      <a href="#education">Education</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#interests">Interests</a>
     </nav>
-    <!-- Scroll progress bar -->
-    <div class="scroll-progress"></div>
+  </div>
+</header>
 
-    <!-- Hero section -->
-    <header id="home">
-        <h1>Ali Badarne</h1>
-        <p class="tagline">Software Engineering Student &amp; Backend Developer</p>
-        <div class="social-icons">
-            <a href="https://github.com/BD-Ali" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-            <a href="https://www.linkedin.com/in/bdali" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-            <a href="Ali_Badarne_Resume.pdf" target="_blank" aria-label="Resume"><i class="fas fa-file-pdf"></i></a>
-        </div>
-    </header>
+<main class="container">
+  <section id="summary">
+    <h2>Summary</h2>
+    <p>Motivated Computer Science student with strong foundations in Java, SQL, and backend development. 
+    Currently developing a Spring Boot product management system with PostgreSQL integration. Skilled in algorithms, data structures, and building scalable, reliable applications. Seeking a software engineering internship to contribute technical expertise and grow professionally.</p>
+  </section>
 
-    <!-- About section -->
-    <section id="about" class="hidden slide-left">
-        <h2 class="section-title">About Me</h2>
-        <div class="card">
-            <p>Motivated software engineering student with over 5 years in IT &amp; web development. Skilled in Java, C, Python and Node.js for backend services and fluent in HTML5, CSS and Angular for front‑end work. Passionate about building scalable, maintainable systems and always eager to learn new technologies. Seeking an opportunity to apply strong technical skills and team spirit in a professional environment.</p>
-        </div>
-    </section>
+  <section id="education">
+    <h2>Education</h2>
+    <div class="card">
+      <h3>B.Sc. in Computer Science</h3>
+      <p>Ben-Gurion University of the Negev</p>
+      <p><strong>Expected Graduation:</strong> Aug 2027</p>
+    </div>
+  </section>
 
-    <!-- Education section -->
-    <section id="education" class="hidden slide-right">
-        <h2 class="section-title">Education</h2>
-        <div class="card">
-            <p><strong>B.Sc. in Software Engineering</strong><br>Azrieli College of Engineering, Jerusalem</p>
-            <p>Current average: 90.5/100 – 3rd year of studies, expected graduation 2026</p>
-            <p><em>Relevant courses:</em></p>
-            <ul>
-                <li>Advanced Object Oriented Programming</li>
-                <li>Data Structures and Algorithms</li>
-                <li>Operating Systems &amp; Computer Networks</li>
-                <li>Distributed Systems &amp; Parallel Computing</li>
-            </ul>
-        </div>
-    </section>
+  <section id="skills">
+    <h2>Technical Skills</h2>
+    <div class="card">
+      <h3>Languages</h3>
+      <ul class="skill-list">
+        <li>Java</li>
+        <li>Python</li>
+        <li>C#</li>
+        <li>SQL</li>
+      </ul>
+      <h3>Web</h3>
+      <ul class="skill-list">
+        <li>HTML</li>
+        <li>CSS</li>
+      </ul>
+      <h3>Frameworks</h3>
+      <ul class="skill-list">
+        <li>Spring Boot</li>
+        <li>REST APIs</li>
+      </ul>
+      <h3>Core</h3>
+      <ul class="skill-list">
+        <li>Data Structures</li>
+        <li>Algorithms</li>
+        <li>Object-Oriented Programming</li>
+        <li>Database Design</li>
+      </ul>
+      <h3>Tools</h3>
+      <ul class="skill-list">
+        <li>Git</li>
+        <li>IntelliJ</li>
+        <li>PostgreSQL</li>
+      </ul>
+      <h3>Languages Spoken</h3>
+      <ul class="skill-list">
+        <li>Arabic (Native)</li>
+        <li>English (Fluent)</li>
+        <li>Hebrew (Proficient)</li>
+      </ul>
+    </div>
+  </section>
 
-    <!-- Skills section -->
-    <section id="skills" class="hidden slide-left">
-        <h2 class="section-title">Technical Skills</h2>
-        <div class="card">
-            <h3>Programming</h3>
-            <p>C, Java, Python, Node.js, SQL</p>
-            <h3>Web &amp; Frameworks</h3>
-            <p>HTML5, CSS, JavaScript, Angular, Spring Boot, MySQL</p>
-            <h3>Tools &amp; Environments</h3>
-            <p>Git, VS Code, Docker, Virtualization &amp; VMware, Linux/Windows Servers</p>
-        </div>
-    </section>
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="card project-item">
+      <h3>Spring Boot Product Management System</h3>
+      <p>Built a backend system with Spring Boot and PostgreSQL to manage products. Developed CRUD operations via REST APIs and applied layered architecture for maintainability.</p>
+      <p><strong>Skills:</strong> Spring Boot, SQL, REST APIs, backend development, database integration</p>
+    </div>
+  </section>
 
-    <!-- Project section -->
-    <section id="project" class="hidden slide-right">
-        <h2 class="section-title">Featured Project</h2>
-        <div class="card">
-            <h3>Spring Boot Product Management System</h3>
-            <ul>
-                <li>Developed a product management backend using Spring Boot and MySQL, exposing RESTful CRUD endpoints.</li>
-                <li>Implemented layered architecture (Controller, Service, Repository) for clean separation of concerns.</li>
-                <li>Added API documentation via Swagger and containerized the application using Docker Compose.</li>
-                <li><strong>Key skills:</strong> Spring Boot, REST APIs, SQL databases, Docker, backend architecture.</li>
-            </ul>
-        </div>
-    </section>
+  <section id="experience">
+    <h2>Additional Experience</h2>
+    <div class="card">
+      <ul class="experience-list">
+        <li>Implemented advanced data structures (AVL trees, B-trees, heaps, hash tables) with efficiency analysis.</li>
+        <li>Designed and analyzed algorithms with complexity and amortized analysis.</li>
+        <li>Actively participated in coding challenges and competitions.</li>
+      </ul>
+    </div>
+  </section>
 
-    <!-- Experience section -->
-    <section id="experience" class="hidden slide-left">
-        <h2 class="section-title">Additional Experience</h2>
-        <div class="card">
-            <ul>
-                <li><strong>System &amp; Network Administrator:</strong> Managed wired and wireless networks, set up virtual machines using VMware, and maintained Linux and Windows server environments.</li>
-                <li><strong>Computer &amp; Mobile Repair:</strong> Diagnosed and repaired hardware and software issues for PCs and smartphones, ensuring optimum performance and user satisfaction.</li>
-            </ul>
-        </div>
-    </section>
+  <section id="interests">
+    <h2>Activities & Interests</h2>
+    <div class="card">
+      <p>Passionate about backend systems, distributed computing, cybersecurity, and applied AI. Active in coding challenges and collaborative study groups.</p>
+    </div>
+  </section>
 
-    <!-- Interests section -->
-    <section id="interests" class="hidden slide-right">
-        <h2 class="section-title">Interests</h2>
-        <div class="card">
-            <p>Chess enthusiast, volunteer in social entrepreneurship initiatives, and avid car remodeling hobbyist. Enjoy exploring new cuisines and experimenting in the kitchen.</p>
-        </div>
-    </section>
+  <section id="contact">
+    <h2>Contact</h2>
+    <div class="card">
+      <p><strong>Location:</strong> Be'er Sheva, Israel</p>
+      <p><strong>Phone:</strong> +972-50-365-3429</p>
+      <p><strong>Email:</strong> <a href="mailto:badarne3li@gmail.com" style="color: var(--accent); text-decoration:none;">badarne3li@gmail.com</a></p>
+      <p>
+        <a class="icon-link" href="https://github.com/BD-Ali" target="_blank"><i class="fab fa-github"></i></a>
+        <a class="icon-link" href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+      </p>
+    </div>
+  </section>
+</main>
 
-    <!-- Footer -->
-    <footer>
-        &copy; 2025 Ali Badarne. All rights reserved.
-    </footer>
+<footer>
+  <p>&copy; 2025 Ali Badarne. All rights reserved.</p>
+</footer>
 
-    <!-- Back to top button -->
-    <button id="backToTop" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
-
-    <script>
-        // Reveal sections as they enter the viewport
-    const revealObserver = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('show');
-            observer.unobserve(entry.target);
-        }
-    });
-}, { threshold: 0.1 });
-
-document.querySelectorAll('.hidden').forEach(el => revealObserver.observe(el));
-  
-
-        // Highlight navigation links based on scroll position
-        const sections = document.querySelectorAll('section');
-        const navLinks = document.querySelectorAll('nav .nav-links a');
-        const navObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                const id = entry.target.getAttribute('id');
-                const navLink = document.querySelector('nav .nav-links a[href="#' + id + '"]');
-                if (entry.isIntersecting) {
-                    navLinks.forEach(link => link.classList.remove('active'));
-                    if (navLink) navLink.classList.add('active');
-                }
-            });
-        }, { threshold: 0.6 });
-        sections.forEach(sec => navObserver.observe(sec));
-
-        // Progress bar and back-to-top button functionality
-        const progressBar = document.querySelector('.scroll-progress');
-        const backToTop = document.getElementById('backToTop');
-        window.addEventListener('scroll', () => {
-            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-            const scrolled = docHeight ? (scrollTop / docHeight) * 100 : 0;
-            progressBar.style.width = scrolled + '%';
-            if (scrollTop > 400) {
-                backToTop.classList.add('show');
-            } else {
-                backToTop.classList.remove('show');
-            }
-        });
-        backToTop.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-    </script>
 </body>
 </html>

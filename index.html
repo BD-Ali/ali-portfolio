@@ -1,522 +1,106 @@
-<!DOCTYPE html>
-<htXml lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ali Badarne | Portfolio</title>
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
- os@2.3.4/dist/aos.css">
-
- :root {
-  --primary: #0a192f;        /* deep navy background */
---  --primary: #0a192f;        /* deep navy background */
-  --secondary: #112d4e;      /* slightly lighter section background */
-  --accent: #00bcd4;         /* turquoise accent for highlights */
-  --highlight: #2979ff;      /* bright blue for hover and active states */
-  --text-light: #e6f1ff;     /* light text colour */
-  --text-muted: #9fa8c1;     /* muted text colour */
-  --white: #ffffff;          /* white */
-t-muted: #9fa8c1;     /* muted text colour */
-  --white: #ffffff;          /* white */ffff;          /* white */
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+AB
+Ali Badarne
+		Home
+		Education
+		Skills
+		Projects
+		Experience
+		Contact
 
 
+Hello, I’m Ali Badarne
+Back‑end focused CS student skilled in Java, SQL, and Spring Boot. Currently building a product management backend with PostgreSQL and modern API practices.
 
-    body {
-      background-color: var(--primary);
-      color: var(--text-light);
-      font-family: 'Montserrat', sans-serif;
-      line-height: 1.6;
-    }
+View Projects
 
-    h1, h2, h3 {
-      color: var(--white);
-      font-weight: 700;
-    }
+GitHub
 
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
-    }
+LinkedIn
+Core Tech
 
-    h2.section-title {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      position: relative;
-    }
+Java • OOP
 
-    h2.section-title::after {
-      content: '';
-      position: absolute;
-      left: 0;
-      bottom: -4px;
-      width: 60px;
-      height: 3px;
-      background: var(--accent);
-      border-radius: 2px;
-    }
+PostgreSQL
 
-    p {
-      margin-bottom: 1rem;
-    }
+Spring Boot
 
-    a {
-      color: var(--accent);
-      text-decoration: none;
-    }
+Git / GitHub
 
-    a:hover {
-      color: var(--highlight);
-    }
+Python (basics)
 
-    /* Navigation */
-    header {
-    
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background-color: rgba(10, 25, 47, 0.8); /* slightly transparent dark backdrop */
-  backdrop-filter: blur(10px);             /* increased blur for a glass effect */
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* subtle bottom border */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* soft drop shadow */
-  z-index: 1000;
-}     0;
-    }
+Education
+B.Sc. in Computer Science
+Ben‑Gurion University of the Negev • Expected Graduation: Aug 2027
 
-    .nav-container {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 1rem;
-    }
+Technical Skills
+Languages
 
-    .logo {
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: var(--accent);
-    }
+Java
 
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 1.5rem;
-    }
+Python
 
-    nav li {
-      position: relative;
-    }
+C#
 
-    nav a {
-      color: var(--text-muted);
-      font-weight: 600;
-      transition: color 0.3s;
-    }
+SQL
+Web
 
-    nav a.active, nav a:hover {
-      color: var(--accent);
-    }
+HTML
 
-    /* Sections */
-    section {
-      padding: 5rem 0;
-    }
+CSS
+Frameworks
 
-    .section-content {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 1rem;
-    }
+Spring Boot
 
-    /* Hero section */
-    .hero {
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      background: var(--primary);
-      position: relative;
-      overflow: hidden;
-    }
+REST APIs
+Core CS
 
-    #particles-js {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      z-index: 0;
-    }
+DSA
 
-    .hero-content {
-      position: relative;
-      z-index: 1;
-      padding: 2rem;
-    }
+OOP
 
-    .hero .btn {
-      display: inline-block;
-      margin-top: 2rem;
-      padding: 0.8rem 1.8rem;
-      border: 2px solid var(--accent);
-      border-radius: 4px;
-      color: var(--accent);
-      font-weight: 600;
-      transition: background-color 0.3s, color 0.3s;
-    }
+DB Design
+Tools
 
-    .hero .btn:hover {
-      background-color: var(--accent);
-      color: var(--primary);
-    }
+Git
 
-    /* Cards layout */
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.5rem;
-    }
+IntelliJ
 
-    .card {
-      background-color: var(--secondary);
-      border-radius: 6px;
-      padding: 1.5rem;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-      transition: transform 0.3s;
-    }
+PostgreSQL
+Languages Spoken
 
-    .card:hover {
-      transform: translateY(-8px);
-    }
+Arabic (Native)
 
-    .contact-list {
-      list-style: none;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1rem;
-      padding: 0;
-    }
+English (Fluent)
 
-    .contact-item {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      color: var(--text-light);
-    }
+Hebrew (Proficient)
 
-    footer {
-      text-align: center;
-      padding: 2rem 1rem;
-      background-color: var(--secondary);
-      color: var(--text-muted);
-      font-size: 0.9rem;
-    }
+Projects
+Spring • PostgreSQL
+Product Management Backend
+RESTful CRUD service in Spring Boot with layered architecture (Controller → Service → Repository). Uses JPA and PostgreSQL with Docker‑ready configs.
+Repo
+Algorithms
+Data Structures Implementations
+Practice implementations (AVL, B‑trees, Heaps, Hash Tables) with complexity notes and tests. Focus on clarity and performance.
+Repos
+Java • REST
+Learning APIs
+Small Java API exercises demonstrating pagination, validation, error handling, and clean DTOs.
+Samples
 
-    /* Responsive tweaks */
-    @media (max-width: 600px) {
-      .nav-container {
-        flex-direction: column;
-        gap: 1rem;
-      }
-      nav ul {
-        gap: 1rem;
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-      h1 {
-        font-size: 2rem;
-      }
-      h2.section-title {
-        font-size: 1.6rem;
-      }
-    }
-  </style>
-</head>
-<body>
-  <!-- Navigation -->
-  <header>
-    <div class="nav-container">
-      <div class="logo">Ali Badarne</div>
-      <nav>
-        <ul>
-          <li><a href="#home" class="nav-link active">Home</a></li>
-          <li><a href="#education" class="nav-link">Education</a></li>
-          <li><a href="#skills" class="nav-link">Skills</a></li>
-          <li><a href="#projects" class="nav-link">Projects</a></li>
-          <li><a href="#experience" class="nav-link">Experience</a></li>
-          <li><a href="#interests" class="nav-link">Interests</a></li>
-          <li><a href="#contact" class="nav-link">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+Additional Experience
+Implemented advanced data structures with rigorous analysis (AVL, B‑trees, heaps, hash tables).
+Algorithm design with time & amortized complexity proofs and problem solving in contests.
+Backend patterns: DTOs, validation, exception handling, service boundaries, repository abstraction.
 
-  <!-- Hero Section -->
-  <section id="home" class="hero">
-    <!-- Particle background -->
-    <div id="particles-js"></div>
-    <div class="hero-content" data-aos="fade-up">
-      <h1>Hello, I am <span style="color: var(--accent);">Ali Badarne</span></h1>
-      <h2 id="typed-text" style="font-size: 1.6rem; color: var(--accent);"></h2>
-      <p style="max-width: 600px; margin: 0 auto;">
-        Motivated Computer Science student with strong foundations in Java, SQL, and backend development. Currently developing a Spring Boot product management system with PostgreSQL integration. Skilled in algorithms, data structures, and building scalable, reliable applications. Seeking a software engineering internship to contribute technical expertise and grow professionally.
-      </p>
-      <a href="#contact" class="btn">Get in Touch</a>
-    </div>
-  </section>
+Contact
+		 badarne3li@gmail.com  +972-50-365-3429  Be'er Sheva, Israel  github.com/BD-Ali  linkedin.com/in/bdali
+Open to:
 
-  <!-- Education Section -->
-  <section id="education" style="background-color: var(--secondary);" data-aos="fade-right">
-    <div class="section-content">
-      <h2 class="section-title">Education</h2>
-      <div class="card">
-        <h3>B.Sc. in Computer Science</h3>
-        <p>
-          Ben-Gurion University of the Negev<br>
-          Expected Graduation: Aug 2027
-        </p>
-      </div>
-    </div>
-  </section>
+SWE Internship
 
-  <!-- Skills Section -->
-  <section id="skills" data-aos="fade-left">
-    <div class="section-content">
-      <h2 class="section-title">Technical Skills</h2>
-      <div class="cards">
-        <div class="card">
-          <h3>Languages</h3>
-          <ul>
-            <li>Java</li>
-            <li>Python</li>
-            <li>C#</li>
-            <li>SQL</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>Web</h3>
-          <ul>
-            <li>HTML</li>
-            <li>CSS</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>Frameworks</h3>
-          <ul>
-            <li>Spring Boot</li>
-            <li>REST APIs</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>Core</h3>
-          <ul>
-            <li>Data Structures</li>
-            <li>Algorithms</li>
-            <li>OOP</li>
-            <li>Database Design</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>Tools</h3>
-          <ul>
-            <li>Git</li>
-            <li>IntelliJ</li>
-            <li>PostgreSQL</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>Languages Spoken</h3>
-          <ul>
-            <li>Arabic (Native)</li>
-            <li>English (Fluent)</li>
-            <li>Hebrew (Proficient)</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
+Cybersecurity
 
-  <!-- Projects Section -->
-  <section id="projects" style="background-color: var(--secondary);" data-aos="fade-right">
-    <div class="section-content">
-      <h2 class="section-title">Projects</h2>
-      <div class="card">
-        <h3>Spring Boot Product Management System</h3>
-        <p>Built a backend system with Spring Boot and PostgreSQL to manage products. Developed CRUD operations via REST APIs and applied layered architecture for maintainability.</p>
-        <p style="color: var(--highlight); font-size: 0.9rem;">Skills: Spring Boot, SQL, REST APIs, Backend Development, Database Integration</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Experience Section -->
-  <section id="experience" data-aos="fade-left">
-    <div class="section-content">
-      <h2 class="section-title">Additional Experience</h2>
-      <div class="cards">
-        <div class="card">
-          <p>Implemented advanced data structures (AVL trees, B-trees, heaps, hash tables) with efficiency analysis.</p>
-        </div>
-        <div class="card">
-          <p>Designed and analyzed algorithms with complexity and amortized analysis.</p>
-        </div>
-        <div class="card">
-          <p>Actively participated in coding challenges and competitions.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Interests Section -->
-  <section id="interests" style="background-color: var(--secondary);" data-aos="fade-right">
-    <div class="section-content">
-      <h2 class="section-title">Activities & Interests</h2>
-      <div class="cards">
-        <div class="card">
-          <p>Passionate about backend systems, distributed computing, cybersecurity, and applied AI.</p>
-        </div>
-        <div class="card">
-          <p>Active in coding challenges and collaborative study groups.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section id="contact" data-aos="fade-left">
-    <div class="section-content">
-      <h2 class="section-title">Contact</h2>
-      <ul class="contact-list">
-        <li class="contact-item">
-          <i class="fas fa-envelope"></i>
-          <a href="mailto:badarne3li@gmail.com" style="color: var(--text-light);">badarne3li@gmail.com</a>
-        </li>
-        <li class="contact-item">
-          <i class="fas fa-phone"></i>
-          <span>+972-50-365-3429</span>
-        </li>
-        <li class="contact-item">
-          <i class="fas fa-map-marker-alt"></i>
-          <span>Be'er Sheva, Israel</span>
-        </li>
-        <li class="contact-item">
-          <i class="fab fa-github"></i>
-          <a href="https://github.com/BD-Ali" target="_blank" style="color: var(--text-light);">GitHub</a>
-        </li>
-        <li class="contact-item">
-          <i class="fab fa-linkedin"></i>
-          <a href="https://www.linkedin.com/in/your-profile" target="_blank" style="color: var(--text-light);">LinkedIn</a>
-        </li>
-      </ul>
-    </div>
-  </section>
-
-  <footer>
-    &copy; <span id="year"></span> Ali Badarne. All rights reserved.
-  </footer>
-
-  <!-- Scripts -->
-  <!-- Typed.js for typing effect -->
-  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-  <!-- Particles.js for animated background -->
-  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-  <!-- AOS library for scroll animations -->
-  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-  <script>
-    // Initialise AOS
-    AOS.init({
-      once: true,
-      duration: 800,
-      easing: 'ease-in-out'
-    });
-
-    // Initialise typed.js for hero subtitle
-    document.addEventListener('DOMContentLoaded', () => {
-      const typed = new Typed('#typed-text', {
-        strings: ['Computer Science Student', 'Backend Developer', 'Aspiring Software Engineer'],
-        typeSpeed: 50,
-        backSpeed: 30,
-        backDelay: 2000,
-        loop: true
-      });
-    });
-
-    // Initialise particles.js
-    particlesJS('particles-js', {
-      particles: {
-        number: { value: 60, density: { enable: true, value_area: 800 } },
-        color: { value: ['#64ffda', '#ffffff'] },
-        shape: {
-          type: 'circle',
-          stroke: { width: 0, color: '#000000' },
-          polygon: { nb_sides: 5 }
-        },
-        opacity: {
-          value: 0.4,
-          random: true,
-          anim: { enable: false, speed: 1, opacity_min: 0.1, sync: false }
-        },
-        size: {
-          value: 3,
-          random: true,
-          anim: { enable: false, speed: 40, size_min: 0.1, sync: false }
-        },
-        line_linked: {
-          enable: true,
-          distance: 150,
-          color: '#64ffda',
-          opacity: 0.3,
-          width: 1
-        },
-        move: {
-          enable: true,
-          speed: 2,
-          direction: 'none',
-          random: false,
-          straight: false,
-          out_mode: 'out',
-          bounce: false
-        }
-      },
-      interactivity: {
-        detect_on: 'canvas',
-        events: {
-          onhover: { enable: true, mode: 'grab' },
-          onclick: { enable: true, mode: 'push' },
-          resize: true
-        },
-        modes: {
-          grab: { distance: 140, line_linked: { opacity: 1 } },
-          push: { particles_nb: 4 }
-        }
-      },
-      retina_detect: true
-    });
-
-    // Scroll navigation active highlighting
-    const sections = document.querySelectorAll('section');
-    const navLinks = document.querySelectorAll('.nav-link');
-
-    function activateNavLink() {
-      let index = sections.length;
-      while(--index && window.scrollY + 100 < sections[index].offsetTop) {}
-      navLinks.forEach((link) => link.classList.remove('active'));
-      navLinks[index].classList.add('active');
-    }
-
-    activateNavLink();
-    window.addEventListener('scroll', activateNavLink);
-
-    // Set current year in footer
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
-</body>
-</html>
+Applied AI
+Let’s build something great. I’m available for student roles and part‑time backend work.
+© Ali Badarne

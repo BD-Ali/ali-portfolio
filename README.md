@@ -25,4 +25,3 @@ The site is contained in a single `index.html` file and uses plain HTML, CSS and
 
 The site uses the Intersection Observer pattern where a callback function adds a class to each section as it becomes visible in the viewport【89040023436198†L316-L334】. This class triggers CSS transitions for opacity and translation, resulting in the smooth slide and fade animations that give the portfolio its polished feel.
 
-Download a copy of my résumé directly from this repository: **[Ali_Badarne_Resume.pdf](./Ali_Badarne_Resume.pdf)**.
